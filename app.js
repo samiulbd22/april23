@@ -52,7 +52,7 @@ function showButton(){
                 othersCost:0,
                 totalMeal:23,
                 prePayable:2633,
-                paid:5500
+                paid:4300
             },
             "01738393696":{ name:"Amrul",
                 stayCost:3000,
