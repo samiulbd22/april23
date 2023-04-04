@@ -1,10 +1,15 @@
-let phoneNumber = "";
+let phoneNumber;
 let inputNumber = document.getElementById("cell-num");
 inputNumber.addEventListener("keyup",showButton);
 function showButton(){
-     phoneNumber = inputNumber.value;
+    phoneNumber = inputNumber.value;
     // input member phone number
-    if(phoneNumber === "01821245430"){
+    if(
+        (phoneNumber === "01814843266") ||(phoneNumber === "01640454889")||
+        (phoneNumber === "01925315230") ||(phoneNumber === "01922362569")||
+        (phoneNumber === "01738393696") ||(phoneNumber === "01794942131")||
+        (phoneNumber === "01400709854") ||(phoneNumber === "01532023080")||
+        (phoneNumber === "01922635500")){
        let goButton = document.getElementById("submit-num");
         // select submit button
        goButton.style.opacity = '1';
@@ -24,119 +29,123 @@ function showButton(){
             "01814843266":{ name:"Istiaq Ahmad Udoy",
                 stayCost:2200,
                 othersCost:0,
-                dueCost:0,
-                getCost:0,
-                totalMeal:30,
+                totalMeal:11,
+                prePayable:2502,
                 paid:5500
             },
-            "01821245430":{ name:"Md Samiul",
-                stayCost:3000,
-                othersCost:30,
-                dueCost:30,
-                getCost:30,
-                totalMeal:30,
+            "01640454889":{ name:"Imran",
+                stayCost:2330,
+                othersCost:0,
+                totalMeal:42,
+                prePayable:2512,
                 paid:5000
             },
-            "01821245430":{ name:"Md Samiul",
+            "01925315230":{ name:"Masum",
+                stayCost:4500,
+                othersCost:0,
+                totalMeal:23,
+                prePayable:4409,
+                paid:12500
+            },
+            "01922362569":{ name:"Razu",
+                stayCost:2000,
+                othersCost:0,
+                totalMeal:23,
+                prePayable:2633,
+                paid:5500
+            },
+            "01738393696":{ name:"Amrul",
                 stayCost:3000,
-                othersCost:30,
-                dueCost:30,
-                getCost:30,
-                totalMeal:30,
+                othersCost:0,
+                totalMeal:26,
+                prePayable:2296,
                 paid:5000
             },
-            "01821245430":{ name:"Md Samiul",
+            "01794942131":{ name:"Mehedi Hasan Maruf",
                 stayCost:3000,
-                othersCost:30,
-                dueCost:30,
-                getCost:30,
-                totalMeal:30,
-                paid:5000
+                othersCost:0,
+                totalMeal:46,
+                prePayable:4606,
+                paid:6500
             },
-            "01821245430":{ name:"Md Samiul",
-                stayCost:3000,
-                othersCost:30,
-                dueCost:30,
-                getCost:30,
-                totalMeal:30,
-                paid:5000
+            "01400709854":{ name:"Rikto Islam",
+                stayCost:2500,
+                othersCost:0,
+                totalMeal:0,
+                prePayable:2500,
+                paid:4500
             },
-            "01821245430":{ name:"Md Samiul",
-                stayCost:3000,
-                othersCost:30,
-                dueCost:30,
-                getCost:30,
-                totalMeal:30,
-                paid:5000
+            "01532023080":{ name:"Sony Hasan",
+                stayCost:2500,
+                othersCost:500,
+                totalMeal:46,
+                prePayable:3186,
+                paid:7500
             },
-            "01821245430":{ name:"Md Samiul",
-                stayCost:3000,
-                othersCost:30,
-                dueCost:30,
-                getCost:30,
-                totalMeal:30,
-                paid:5000
+            "01922635500":{ name:"Rubel Hossain",
+                stayCost:0,
+                othersCost:0,
+                totalMeal:28,
+                prePayable:1633,
+                paid:1500
             },
-            "01821245430":{ name:"Md Samiul",
-                stayCost:3000,
-                othersCost:30,
-                dueCost:30,
-                getCost:30,
-                totalMeal:30,
-                paid:5000
-            },
-            "01821245430":{ name:"Md Samiul",
-                stayCost:3000,
-                othersCost:30,
-                dueCost:30,
-                getCost:30,
-                totalMeal:30,
-                paid:5000
-            },
-            "01821245430":{ name:"Md Samiul",
-                stayCost:3000,
-                othersCost:30,
-                dueCost:30,
-                getCost:30,
-                totalMeal:30,
-                paid:5000
-            },
+
             khalaCost:400,
             netCost:140,
-            serviceCost:30,
             mealRate:43.5,
+            serviceCost:30
         };
      let memberName     = member[phoneNumber].name;
      let stayCost       = member[phoneNumber].stayCost;
      let khalaCost      = member.khalaCost;
      let netCost        = member.netCost;
      let serviceCost    = member.serviceCost;
-     let othersCost     = member[phoneNumber].othersCost;
-     let dueCost        = member[phoneNumber].dueCost;
-     let getCost        = member[phoneNumber].getCost;
+
+    let othersCost       = member[phoneNumber].othersCost;
+
      let totalMeal      = member[phoneNumber].totalMeal;
      let mealRate       = member.mealRate;
+
      let paid           = member[phoneNumber].paid;
+     let prePayable     = member[phoneNumber].prePayable;
 
+     // Total paid - Total payable (previous to running)
+     let depositBalance         = (paid > prePayable) ? `${paid - prePayable}` :"";
+     let dueBalance             = (paid < prePayable) ? `${prePayable - paid }` :"";
+
+     // let getMoney = depositBalance - totalMealCost;
+     // let PreviousDueBalance2 = Number(dueBalance);
+
+     //Recent Total meal cost
      let totalMealCost  = totalMeal * mealRate;
-     let totalAmount    = stayCost + khalaCost + serviceCost + othersCost + totalMealCost + dueCost - getCost;
+
+     let mealCostCalculation    = (depositBalance > totalMealCost)?`${depositBalance - totalMealCost}`:"";
+     let dueMealCost            = (totalMealCost > depositBalance) ? `${totalMealCost - depositBalance}`:"";
+
+     //previous due added in running cost
+       let dueMoney = Number(dueBalance);
+       let dueMoneyOnrunning = Number(dueMealCost);
+       let getMoney = Number(mealCostCalculation);
 
 
-     let remainingForBazzar     = (paid > totalAmount) ? `${paid - totalAmount}`: "00";
-     let remainingDue           = (totalAmount > paid)?`${totalAmount - paid}`:"00";
 
-     let mealCostCalculation    = (remainingForBazzar > totalMealCost)?`${remainingForBazzar - totalMealCost}`:"00";
-     let dueMealCost            = (totalMealCost > remainingForBazzar)?`${totalMealCost - remainingForBazzar}`:"00";
+     //running Payable amount
+     let totalAmount    = (stayCost + khalaCost + serviceCost + othersCost + netCost + dueMoney + dueMoneyOnrunning) - (getMoney) ;
+    
+
+     // Recent date
      let dateTime               = "23-03-23";
 
 
+    // section number 2 is started
         let memberPage = document.getElementById("member");
             memberPage.innerHTML = memberName;
         let datePage = document.getElementById("dateMe");
             datePage.innerHTML = dateTime;
         let amountPage = document.getElementById("amount");
             amountPage.innerHTML = `${totalAmount} <span>tk</span>`;
-
+      // section number 2 is ended
+    // section number 2 is started  due-previous
         let stayCostPage = document.getElementById("stay-cost");
             stayCostPage.innerHTML = `${stayCost} <span>tk</span>`;
         let khalaCostPage = document.getElementById("khala-cost");
@@ -147,10 +156,16 @@ function showButton(){
             serviceCostPage.innerHTML = `${serviceCost} <span>tk</span>`;
         let otherCostPage = document.getElementById("other-cost");
             otherCostPage.innerHTML = `${othersCost} <span>tk</span>`;
-        let mealCostPage = document.getElementById("meal-cost");
-            mealCostPage.innerHTML = `${remainingForBazzar} <span>tk</span>`;
+        let dueMealCostPage = document.getElementById("dueMeal-cost");
+            dueMealCostPage.innerHTML = (dueMealCost ==="") ? "00" : `${dueMealCost} <span>tk</span>`;
+        let duePreviousPage = document.getElementById("due-previous");
+            duePreviousPage.innerHTML = (dueBalance ==="") ? "00" : `${dueBalance} <span>tk</span>`;
+        let getMealCostPage = document.getElementById("getMeal-cost");
+            getMealCostPage.innerHTML = (mealCostCalculation ==="") ? "00" : `<span>-</span>${mealCostCalculation} <span>tk</span>`;
         let totalAmountPage = document.getElementById("total-cost");
             totalAmountPage.innerHTML = `${totalAmount} <span>tk</span>`;
+    // section number 2 is ended
+    // section number 3 is started
         let totalMealPage = document.getElementById("meal-total");
             totalMealPage.innerHTML = `${totalMeal} <span>tk</span>`;
         let mealRatePage = document.getElementById("meal-rate");
@@ -158,21 +173,24 @@ function showButton(){
         let totalMealCostPage = document.getElementById("meal-amount");
             totalMealCostPage.innerHTML = `${totalMealCost} <span>tk</span>`;
         let paidPage = document.getElementById("meal-paid");
-            paidPage.innerHTML = `${remainingForBazzar} <span>tk</span>`;
+            paidPage.innerHTML = (depositBalance === "") ? "00" :`${depositBalance} <span>tk</span>`;
+
         let duePage = document.getElementById("due-amount");
-            duePage.innerHTML = `<span style="color: darkred">-</span> ${dueMealCost} <span>tk</span>`;
+            duePage.innerHTML = (dueMealCost ==="") ? "00" : `<span style="color: darkred">-</span> ${dueMealCost} <span>tk</span>`;
         let mealCostCalculationPage = document.getElementById("calculation-amount");
-            mealCostCalculationPage.innerHTML = `<span style="color: darkgreen">+</span> ${mealCostCalculation} <span>tk</span>`;
+            mealCostCalculationPage.innerHTML = (mealCostCalculation ==="") ? "00" : `<span style="color: darkgreen">+</span> ${mealCostCalculation} <span>tk</span>`;
+    // section number 3 is ended
 
-
+    // section number 4 is started
         let totalPayablePage = document.getElementById("total-payable");
-            totalPayablePage.innerHTML = `${totalAmount} <span>tk</span>`;
+            totalPayablePage.innerHTML = `${prePayable} <span>tk</span>`;
         let totalPaidPage = document.getElementById("paid-amount");
             totalPaidPage.innerHTML = `${paid} <span>tk</span>`;
         let totalDuePage = document.getElementById("totalDue-amount");
-            totalDuePage.innerHTML = `<span style="color: darkred">-</span> ${remainingDue} <span>tk</span>`;
+            totalDuePage.innerHTML = (dueBalance ==="") ? "00" :`<span style="color: darkred">-</span> ${dueBalance} <span>tk</span>`;
         let totalAddBazarPage = document.getElementById("totalAdd-amount");
-            totalAddBazarPage.innerHTML = `<span style="color: darkgreen">+</span> ${remainingForBazzar} <span>tk</span>`;
+            totalAddBazarPage.innerHTML = (depositBalance ==="")? "00": `<span style="color: darkgreen">+</span> ${depositBalance} <span>tk</span>`;
+        // section number 4 is started
     }
 
 }
