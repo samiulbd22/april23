@@ -32,9 +32,9 @@ function showButton(){
                 totalMeal:11,
                 prePayable:2502,
                 paid:5500,
-                ramadanTotalMeal:1750,
+                ramadanTotalMeal:34,
                 ramadanMealRate:68.55,
-                ramadanMealPaid:34,
+                ramadanMealPaid:1750,
             },
             "01640454889":{ name:"Imran",
                 stayCost:2330,
@@ -338,7 +338,7 @@ function showButton(){
         const year = date.getFullYear();
         const fullYear =`${day}-${month}-${year}`;
         document.getElementById("date-time").innerText = fullYear;
-        const ramazan = month + 8;
+        const ramazan = day + 8;
         document.getElementById("ramzan").innerHTML=`${ramazan} <sup>th</sup> Ramadan`
 
         /*Ramadan Month*/
