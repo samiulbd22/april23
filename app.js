@@ -9,7 +9,7 @@ function showButton(){
         (phoneNumber === "01925315230") ||(phoneNumber === "01922362569")||
         (phoneNumber === "01738393696") ||(phoneNumber === "01794942131")||
         (phoneNumber === "01400709854") ||(phoneNumber === "01532023080")||
-        (phoneNumber === "01922635500")){
+        (phoneNumber === "01922635500") ||(phoneNumber === "245430")){
        let goButton = document.getElementById("submit-num");
         // select submit button
        goButton.style.opacity = '1';
@@ -31,63 +31,101 @@ function showButton(){
                 othersCost:0,
                 totalMeal:11,
                 prePayable:2502,
-                paid:5500
+                paid:5500,
+                ramadanTotalMeal:1750,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:34,
             },
             "01640454889":{ name:"Imran",
                 stayCost:2330,
                 othersCost:0,
                 totalMeal:42,
                 prePayable:2512,
-                paid:5000
+                paid:5000,
+                ramadanTotalMeal:39,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:3500,
             },
             "01925315230":{ name:"Masum",
                 stayCost:4500,
                 othersCost:0,
                 totalMeal:23,
                 prePayable:4409,
-                paid:12500
+                paid:12500,
+                ramadanTotalMeal:30,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:1570,
             },
             "01922362569":{ name:"Razu",
                 stayCost:2000,
                 othersCost:0,
                 totalMeal:23,
                 prePayable:2633,
-                paid:4300
+                paid:4300,
+                ramadanTotalMeal:39,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:0,
             },
             "01738393696":{ name:"Amrul",
                 stayCost:3000,
                 othersCost:0,
                 totalMeal:26,
                 prePayable:2296,
-                paid:5000
+                paid:5000,
+                ramadanTotalMeal:39,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:1003,
             },
             "01794942131":{ name:"Mehedi Hasan Maruf",
                 stayCost:3000,
                 othersCost:0,
                 totalMeal:46,
                 prePayable:4606,
-                paid:6500
+                paid:6500,
+                ramadanTotalMeal:39,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:823,
+
             },
             "01400709854":{ name:"Rikto Islam",
                 stayCost:2500,
                 othersCost:0,
                 totalMeal:0,
                 prePayable:2500,
-                paid:4500
+                paid:4500,
+                ramadanTotalMeal:22,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:18,
             },
             "01532023080":{ name:"Sony Hasan",
                 stayCost:2500,
                 othersCost:500,
                 totalMeal:46,
                 prePayable:3186,
-                paid:7500
+                paid:7500,
+                ramadanTotalMeal:40,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:1743,
             },
             "01922635500":{ name:"Rubel Hossain",
                 stayCost:0,
                 othersCost:0,
                 totalMeal:28,
                 prePayable:1633,
-                paid:1500
+                paid:1500,
+                ramadanTotalMeal:39,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:219,
+            },
+            "245430":{ name:"Samiul Islam",
+                stayCost:0,
+                othersCost:0,
+                totalMeal:28,
+                prePayable:1633,
+                paid:1500,
+                ramadanTotalMeal:39,
+                ramadanMealRate:68.55,
+                ramadanMealPaid:18,
             },
 
             khalaCost:400,
@@ -191,6 +229,119 @@ function showButton(){
         let totalAddBazarPage = document.getElementById("totalAdd-amount");
             totalAddBazarPage.innerHTML = (depositBalance ==="")? "00": `<span style="color: darkgreen">+</span> ${depositBalance} <span>tk</span>`;
         // section number 4 is started
+
+        /*Ramadan Month*/
+        /*Sony*/
+        let sony = member["01532023080"].name;
+        let sonyRamadanMeal = member["01532023080"].ramadanTotalMeal * member["01532023080"].ramadanMealRate;
+        let sonyPaid = member["01532023080"].ramadanMealPaid;
+        let sonyGet = (member["01532023080"].ramadanMealPaid > sonyRamadanMeal)?(member["01532023080"].ramadanMealPaid - sonyRamadanMeal):"00";
+        let sonyDue = (member["01532023080"].ramadanMealPaid < sonyRamadanMeal)?(sonyRamadanMeal - member["01532023080"].ramadanMealPaid):"00";
+        let nameSony = document.getElementById("sony").innerText = sony;
+        let costSony = document.getElementById("sony-meal-cost").innerText = sonyRamadanMeal;
+        let paidSony = document.getElementById("sony-meal-pay").innerText = sonyPaid;
+        let getSony = document.getElementById("sony-get").innerText = sonyGet;
+        let dueSony = document.getElementById("sony-due").innerText = sonyDue;
+        /*Sony*/
+        /*udoy*/
+        let udoy = member["01814843266"].name;
+        let udoyRamadanMeal = member["01814843266"].ramadanTotalMeal * member["01532023080"].ramadanMealRate;
+        let udoyPaid = member["01814843266"].ramadanMealPaid;
+        let udoyGet = (member["01814843266"].ramadanMealPaid > sonyRamadanMeal)?(member["01532023080"].ramadanMealPaid - sonyRamadanMeal):"00";
+        let udoyDue = (member["01814843266"].ramadanMealPaid < sonyRamadanMeal)?(sonyRamadanMeal - member["01532023080"].ramadanMealPaid):"00";
+        let nameUdoy = document.getElementById("udoy").innerText = udoy;
+        let costUdoy = document.getElementById("udoy-meal-cost").innerText = udoyRamadanMeal;
+        let paidUdoy = document.getElementById("udoy-meal-pay").innerText = udoyPaid;
+        let getUdoy = document.getElementById("udoy-get").innerText = udoyGet;
+        let dueUdoy = document.getElementById("udoy-due").innerText = udoyDue;
+        /*udoy*/
+        /*Imran*/
+        let imran = member["01640454889"].name;
+        let imranRamadanMeal = member["01640454889"].ramadanTotalMeal * member["01532023080"].ramadanMealRate;
+        let imranPaid = member["01640454889"].ramadanMealPaid;
+        let imranGet = (member["01640454889"].ramadanMealPaid > sonyRamadanMeal)?(member["01532023080"].ramadanMealPaid - sonyRamadanMeal):"00";
+        let imranDue = (member["01640454889"].ramadanMealPaid < sonyRamadanMeal)?(sonyRamadanMeal - member["01532023080"].ramadanMealPaid):"00";
+        let nameImran = document.getElementById("imran").innerText = imran;
+        let costImran = document.getElementById("imran-meal-cost").innerText = imranRamadanMeal;
+        let paidImran = document.getElementById("imran-meal-pay").innerText = imranPaid;
+        let getImran = document.getElementById("imran-get").innerText = imranGet;
+        let dueImran = document.getElementById("imran-due").innerText = imranDue;
+        /*Imran*/
+        /*Masum*/
+        let masum = member["01925315230"].name;
+        let masumRamadanMeal = member["01925315230"].ramadanTotalMeal * member["01532023080"].ramadanMealRate;
+        let masumPaid = member["01925315230"].ramadanMealPaid;
+        let masumGet = (member["01925315230"].ramadanMealPaid > sonyRamadanMeal)?(member["01532023080"].ramadanMealPaid - sonyRamadanMeal):"00";
+        let masumDue = (member["01925315230"].ramadanMealPaid < sonyRamadanMeal)?(sonyRamadanMeal - member["01532023080"].ramadanMealPaid):"00";
+        let nameMasum = document.getElementById("masum").innerText = masum;
+        let costMasum = document.getElementById("masum-meal-cost").innerText = masumRamadanMeal;
+        let paidMasum = document.getElementById("masum-meal-pay").innerText = masumPaid;
+        let getMasum = document.getElementById("masum-get").innerText = masumGet;
+        let dueMasum = document.getElementById("masum-due").innerText = masumDue;
+        /*Masum*/
+        /*razu*/
+        let razu = member["01922362569"].name;
+        let razuRamadanMeal = member["01922362569"].ramadanTotalMeal * member["01532023080"].ramadanMealRate;
+        let razuPaid = member["01922362569"].ramadanMealPaid;
+        let razuGet = (member["01922362569"].ramadanMealPaid > sonyRamadanMeal)?(member["01532023080"].ramadanMealPaid - sonyRamadanMeal):"00";
+        let razuDue = (member["01922362569"].ramadanMealPaid < sonyRamadanMeal)?(sonyRamadanMeal - member["01532023080"].ramadanMealPaid):"00";
+        let nameRazu = document.getElementById("razu").innerText = razu;
+        let costRazu = document.getElementById("razu-meal-cost").innerText = razuRamadanMeal;
+        let paidRazu = document.getElementById("razu-meal-pay").innerText = razuPaid;
+        let getRazu = document.getElementById("razu-get").innerText = razuGet;
+        let dueRazu = document.getElementById("razu-due").innerText = razuDue;
+        /*razu*/
+        /*amrul*/
+        let amrul = member["01738393696"].name;
+        let amrulRamadanMeal = member["01738393696"].ramadanTotalMeal * member["01532023080"].ramadanMealRate;
+        let amrulPaid = member["01738393696"].ramadanMealPaid;
+        let amrulGet = (member["01738393696"].ramadanMealPaid > sonyRamadanMeal)?(member["01532023080"].ramadanMealPaid - sonyRamadanMeal):"00";
+        let amrulDue = (member["01738393696"].ramadanMealPaid < sonyRamadanMeal)?(sonyRamadanMeal - member["01532023080"].ramadanMealPaid):"00";
+        let nameAmrul = document.getElementById("amrul").innerText = amrul;
+        let costAmrul = document.getElementById("amrul-meal-cost").innerText = amrulRamadanMeal;
+        let paidAmrul = document.getElementById("amrul-meal-pay").innerText = amrulPaid;
+        let getAmrul = document.getElementById("amrul-get").innerText = amrulGet;
+        let dueAmrul = document.getElementById("amrul-due").innerText = amrulDue;
+        /*amrul*/
+        /*maruf*/
+        let maruf = member["01794942131"].name;
+        let marufRamadanMeal = member["01794942131"].ramadanTotalMeal * member["01532023080"].ramadanMealRate;
+        let marufPaid = member["01794942131"].ramadanMealPaid;
+        let marufGet = (member["01794942131"].ramadanMealPaid > sonyRamadanMeal)?(member["01532023080"].ramadanMealPaid - sonyRamadanMeal):"00";
+        let marufDue = (member["01794942131"].ramadanMealPaid < sonyRamadanMeal)?(sonyRamadanMeal - member["01532023080"].ramadanMealPaid):"00";
+        let nameMaruf = document.getElementById("maruf").innerText = maruf;
+        let costMaruf = document.getElementById("maruf-meal-cost").innerText = marufRamadanMeal;
+        let paidMaruf = document.getElementById("maruf-meal-pay").innerText = marufPaid;
+        let getMaruf = document.getElementById("maruf-get").innerText = marufGet;
+        let dueMaruf = document.getElementById("maruf-due").innerText = marufDue;
+        /*maruf*/
+        /*rubel*/
+        let rubel = member["01922635500"].name;
+        let rubelRamadanMeal = member["01922635500"].ramadanTotalMeal * member["01532023080"].ramadanMealRate;
+        let rubelPaid = member["01922635500"].ramadanMealPaid;
+        let rubelGet = (member["01922635500"].ramadanMealPaid > sonyRamadanMeal)?(member["01532023080"].ramadanMealPaid - sonyRamadanMeal):"00";
+        let rubelDue = (member["01922635500"].ramadanMealPaid < sonyRamadanMeal)?(sonyRamadanMeal - member["01532023080"].ramadanMealPaid):"00";
+        let nameRubel = document.getElementById("rubel").innerText = rubel;
+        let costRubel = document.getElementById("rubel-meal-cost").innerText = rubelRamadanMeal;
+        let paidRubel = document.getElementById("rubel-meal-pay").innerText = rubelPaid;
+        let getRubel = document.getElementById("rubel-get").innerText = rubelGet;
+        let dueRubel = document.getElementById("rubel-due").innerText = rubelDue;
+        /*rubel*/
+	
+        let cellPhone = document.getElementById(`${phoneNumber}`);
+        if(cellPhone || phoneNumber){
+            //cellPhone.style.backgroundColor = "#F3CCFF";
+        }
+        const date = new Date;
+        const day =date.getDate();
+        const month =date.getMonth() +1;
+        const year = date.getFullYear();
+        const fullYear =`${day}-${month}-${year}`;
+        document.getElementById("date-time").innerText = fullYear;
+        const ramazan = month + 8;
+        document.getElementById("ramzan").innerHTML=`${ramazan} <sup>th</sup> Ramadan`
+
+        /*Ramadan Month*/
     }
 
 }
@@ -216,3 +367,5 @@ function reveal(){
         }
     }
 }
+
+
