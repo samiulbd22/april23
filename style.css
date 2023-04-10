@@ -126,6 +126,7 @@ h1{
     flex-direction: row;
     justify-content: space-evenly;
     align-content: center;
+    align-items: center;
 
 }
 #date-time, #ramzan{
@@ -134,10 +135,11 @@ h1{
 table{
     width: 98%;
     height: auto;
-    margin: 50px 10px;
+    margin: 50px auto;
     background-color: #FFFBEB;
     border: 1px solid #251749;
     border-collapse: collapse;
+}
 }
 tr{
     height: 40px;
