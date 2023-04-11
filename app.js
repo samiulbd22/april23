@@ -105,7 +105,7 @@ function showButton(){
                 paid:7500,
                 ramadanTotalMeal:43,
                 ramadanMealRate:71.71,
-                ramadanMealPaid:2000,
+                ramadanMealPaid:2343,
             },
             "01922635500":{ name:"Rubel Hossain",
                 stayCost:0,
