@@ -44,7 +44,7 @@ function showButton(){
                 paid:5000,
                 ramadanTotalMeal:41,
                 ramadanMealRate:71.71,
-                ramadanMealPaid:3500,
+                ramadanMealPaid:3361,
             },
             "01925315230":{ name:"Masum",
                 stayCost:4500,
@@ -52,9 +52,9 @@ function showButton(){
                 totalMeal:23,
                 prePayable:4409,
                 paid:12500,
-                ramadanTotalMeal:31,
+                ramadanTotalMeal:31.5,
                 ramadanMealRate:71.71,
-                ramadanMealPaid:2370,
+                ramadanMealPaid:2320,
             },
             "01922362569":{ name:"Razu",
                 stayCost:2000,
@@ -74,7 +74,7 @@ function showButton(){
                 paid:5000,
                 ramadanTotalMeal:41,
                 ramadanMealRate:71.71,
-                ramadanMealPaid:4003,
+                ramadanMealPaid:3603,
             },
             "01794942131":{ name:"Mehedi Hasan Maruf",
                 stayCost:3000,
@@ -93,8 +93,8 @@ function showButton(){
                 totalMeal:0,
                 prePayable:2500,
                 paid:4500,
-                ramadanTotalMeal:24,
-                ramadanMealRate:71.71,
+                ramadanTotalMeal:22,
+                ramadanMealRate:68.55,
                 ramadanMealPaid:18,
             },
             "01532023080":{ name:"Sony Hasan",
@@ -115,7 +115,7 @@ function showButton(){
                 paid:1500,
                 ramadanTotalMeal:41,
                 ramadanMealRate:71.71,
-                ramadanMealPaid:819,
+                ramadanMealPaid:3319,
             },
             "245430":{ name:"Samiul Islam",
                 stayCost:0,
@@ -124,7 +124,7 @@ function showButton(){
                 prePayable:1633,
                 paid:1500,
                 ramadanTotalMeal:39,
-                ramadanMealRate:71.71,
+                ramadanMealRate:68.55,
                 ramadanMealPaid:18,
             },
 
@@ -348,6 +348,18 @@ function showButton(){
         document.getElementById("ramzan").innerHTML=`${ramazan} <sup>th</sup> Ramadan`;
 
         /*Ramadan Month*/
+        /* upperRomjan */
+
+        document.getElementById("sony1").innerText = sonyRamadanMeal.toString();
+        document.getElementById("udoy1").innerText = udoyRamadanMeal.toString();
+        document.getElementById("razu1").innerText = razuRamadanMeal.toString();
+        document.getElementById("amrul1").innerText = amrulRamadanMeal.toString();
+        document.getElementById("maruf1").innerText = marufRamadanMeal.toString();
+        document.getElementById("masum1").innerText = masumRamadanMeal.toString();
+        document.getElementById("imran1").innerText = imranRamadanMeal.toString();
+        document.getElementById("rubel1").innerText = rubelRamadanMeal.toString();
+
+        /* upperRomjan */
     }
 
 }
