@@ -345,7 +345,7 @@ function showButton(){
         const fullYear =`${day}-${month}-${year}`;
         document.getElementById("date-time").innerText = fullYear;
         const ramazan = day + 8;
-        document.getElementById("ramzan").innerHTML=`${ramazan} <sup>th</sup> Ramadan`;
+        document.getElementById("ramzan").innerHTML=`${ramazan} <sup><small>th</small></sup> Ramadan`;
 
         /*Ramadan Month*/
         /* upperRomjan */
