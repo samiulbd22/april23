@@ -64,7 +64,7 @@ function showButton(){
                 paid:4300,
                 ramadanTotalMeal:54,
                 ramadanMealRate:70.71,
-                ramadanMealPaid:1496.5,
+                ramadanMealPaid:1996.5,
             },
             "01738393696":{ name:"Amrul",
                 stayCost:3000,
