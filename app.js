@@ -44,7 +44,7 @@ function showButton(){
                 paid:5000,
                 ramadanTotalMeal:54,
                 ramadanMealRate:70.71,
-                ramadanMealPaid:3361,
+                ramadanMealPaid:4361,
             },
             "01925315230":{ name:"Masum",
                 stayCost:4500,
